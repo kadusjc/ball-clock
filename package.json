@@ -1,0 +1,41 @@
+{
+  "name": "ball-clock",
+  "version": "0.0.5",
+  "description": "Ball Clock Challenge using nodejs",
+  "main": "run.js",
+  "scripts": {
+    "test": "node ./node_modules/mocha/bin/mocha",
+    "start": "node -e 'require(\"./execute\")()'"
+  },
+  "keywords": [
+    "Ball",
+    "Clock",
+    "Job",
+    "Challenge",
+    "Nodejs",
+    "Object",
+    "modeling",
+    "Class",
+    "ECMA6"
+  ],
+  "author": "Carlos Eduardo Ferreiro Corrêa",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^4.0.2",
+    "chai-as-promised": "7.1.1",
+    "chai-datetime": "1.4.1",
+    "eslint": "1.10.3",
+    "mocha": "^3.2.0",
+    "mocha-prepare": "0.1.0",
+    "nock": "9.0.2",
+    "nodemon": "1.11.0",
+    "sinon": "1.17.3",
+    "sinon-chai": "2.11.0",
+    "supertest": "4.0.2"
+  },
+  "engines": {
+    "node": "14.x",
+    "yarn": "1.x"
+  }
+}

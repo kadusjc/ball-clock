@@ -1,0 +1,5 @@
+-r ./test/helpers
+--reporter spec
+--ui bdd
+--recursive
+--timeout 15000
