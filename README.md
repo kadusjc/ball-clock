@@ -1,5 +1,8 @@
 # BALL's CLOCK CHALLENGE
 
+## Nodejs Implementation of Balls Clock
+## Autor: Carlos Eduardo Ferreiro Correa
+
 <p align="justify">Time and motion
 Tempus est mensura motus rerum mobilium.
 Time is the measure of movement.
@@ -55,10 +58,6 @@ clock returns to its initial ordering.</p>
 
 ### 30 balls cycle after 15 days.
 ### 45 balls cycle after 378 days.
-
-## Nodejs Implementation of Balls Clock
-
-## Autor: Carlos Eduardo Ferreiro Correa
 
 To install and execute:
 ``` 
