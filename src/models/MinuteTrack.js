@@ -20,8 +20,10 @@ class MinutesTrack {
         this.indicatorCount++
         this.indicatorQueue.push(ball)        
 
-        if (this.indicatorCount > TOTAL_INDICATOR_CAPACITY_BALLS) {
-           for(let i=this.indicatorQueue.length-1;  i >=1; i--){
+        if (this.indicatorCount === TOTAL_INDICATOR_CAPACITY_BALLS + 1) {
+           this.indicatorQueue = this.indicatorQueue.reverse()
+
+           for(let i=1; i < this.indicatorQueue.length; i++){
                 this.ballQueue.giveBackOneBallToQueue(this.indicatorQueue[i])
             }
             const fifthBall = this.indicatorQueue[0]

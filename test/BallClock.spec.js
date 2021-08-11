@@ -4,15 +4,14 @@ const validationErrorMessage = 'Queue input invalid. Use values from 27 until 12
 describe('BallClock class test', () => {
     describe('.turnOnClock', () => {
         it('should NOT turn the clock on if queue size is not valid', () => {
-            let ballClock = new BallClock()
             try { 
-                ballClock.turnOnClock() 
+                new BallClock()
             } catch(error) {
                 expect(error.message).to.be.eq(validationErrorMessage)
             }
             
-            ballClock = new BallClock(128)
             try { 
+                let ballClock = new BallClock(128)
                 ballClock.turnOnClock() 
             } catch(error) {
                 expect(error.message).to.be.eq(validationErrorMessage)

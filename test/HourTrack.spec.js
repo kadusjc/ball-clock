@@ -1,50 +1,50 @@
 const { expect } = require('chai')
 const BallQueue = require('../src/models/BallQueue')
-const FiveMinutesTrack = require('../src/models/FiveMinutesTrack')
+const HourTrack = require('../src/models/HourTrack')
 
-describe('FiveMunutesTrack class test', () => {
+describe('HourTrack class test', () => {
     describe('.addOneBallToIndicator', () => {
-        it('should increment indicator counter and reduce the balls of main queue after 5 minutes', () => {
+        it('should increment indicator counter and reduce the balls of main queue after 60 minutes', () => {
             let ballQueue = new BallQueue(30)            
-            let fiveMinutesTrack = new FiveMinutesTrack(ballQueue)
+            let hourTrack = new HourTrack(ballQueue)
             console.log('\nOriginal queue: ')
             console.log(ballQueue.getQueue())         
 
             let ball = ballQueue.getCurrentBallFromQueue()
 
-            fiveMinutesTrack.addOneBallToIndicator(ball)
-            expect(fiveMinutesTrack.indicatorCount).to.be.eq(1)
-            expect(fiveMinutesTrack.indicatorQueue).to.be.deep.eq([1])            
+            hourTrack.addOneBallToIndicator(ball)
+            expect(hourTrack.indicatorCount).to.be.eq(1)
+            expect(hourTrack.indicatorQueue).to.be.deep.eq([1])            
             console.log('\nTaking one ball ')
             console.log(ballQueue.getQueue())
             
-            console.log('\nFive Minutes Indicator: ')         
-            console.log(fiveMinutesTrack.indicatorQueue)
+            console.log('\Hour Minutes Indicator: ')         
+            console.log(hourTrack.indicatorQueue)
 
             console.log('\nBalls queue ')
             console.log(ballQueue.getQueue())       
         })
         
-        it('should give balls back to the queue ( in reverse order ) after five minutes indicator be full', () => {
+        it('should give balls back to the queue ( in reverse order ) after One Hour indicator be full', () => {
             let ballQueue = new BallQueue(30)            
-            let fiveMinutesTrack = new FiveMinutesTrack(ballQueue)
+            let hourTrack = new HourTrack(ballQueue)
 
             console.log('Original queue: ')         
             console.log(ballQueue.getQueue())         
 
             for (let i=0; i<=10; i++) {
                 let ball = ballQueue.getCurrentBallFromQueue()
-                fiveMinutesTrack.addOneBallToIndicator(ball)    
+                hourTrack.addOneBallToIndicator(ball)    
             }
             
-            console.log('\nTaking 11 balls from Queue (fulling five minutes Indicator): ')            
+            console.log('\nTaking 11 balls from Queue (fulling One Hour Indicator): ')            
             console.log(ballQueue.getQueue())
 
-            console.log('\nFive minutes Indicator: ')         
-            console.log(fiveMinutesTrack.indicatorQueue)
+            console.log('\One Hour Indicator: ')         
+            console.log(hourTrack.indicatorQueue)
 
-            expect(fiveMinutesTrack.indicatorCount).to.be.eq(11)
-            expect(fiveMinutesTrack.indicatorQueue).to.be.deep.eq([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
+            expect(hourTrack.indicatorCount).to.be.eq(11)
+            expect(hourTrack.indicatorQueue).to.be.deep.eq([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
             console.log('\nBalls Queue: ')         
             console.log(ballQueue.getQueue())            
 
@@ -56,15 +56,15 @@ describe('FiveMunutesTrack class test', () => {
 
             console.log('\nTaking one more ball to run on clock....\nMust fall into Hours Track and give all five minutes indicator balls back to queue')          
             ball = ballQueue.getCurrentBallFromQueue()
-            fiveMinutesTrack.addOneBallToIndicator(ball)    
+            hourTrack.addOneBallToIndicator(ball)    
             console.log(ballQueue.getQueue())
 
-            console.log('\nFive Minutes Indicator: ')         
-            console.log(fiveMinutesTrack.indicatorQueue)
+            console.log('\nOne Hour Indicator: ')         
+            console.log(hourTrack.indicatorQueue)
 
-            expect(fiveMinutesTrack.indicatorCount).to.be.eq(0)
-            expect(fiveMinutesTrack.indicatorQueue).to.be.deep.eq([])
-            expect(ballQueue.getQueue().length).to.be.eq(29)
+            expect(hourTrack.indicatorCount).to.be.eq(0)
+            expect(hourTrack.indicatorQueue).to.be.deep.eq([])
+            expect(ballQueue.getQueue().length).to.be.eq(30)
 
             expect(ballQueue.getQueue()[0]).to.be.eq(13)
 
@@ -79,11 +79,11 @@ describe('FiveMunutesTrack class test', () => {
             expect(ballQueue.getQueue()[20]).to.be.eq(9)
             expect(ballQueue.getQueue()[19]).to.be.eq(10)
             
-            expect(ballQueue.getQueue().indexOf(12) < 0).to.be.eq(true)
+            expect(ballQueue.getQueue().indexOf(12) >= 0).to.be.eq(true)
             expect(ballQueue.getQueue().indexOf(1) >= 0).to.be.eq(true)
 
 
-            console.log('\nCleaning Five minutes Indicator, giving balls back to the queue in reverse order: ')         
+            console.log('\nCleaning One hour Indicator, giving balls back to the queue in reverse order: ')         
             console.log(ballQueue.getQueue())            
         })
  

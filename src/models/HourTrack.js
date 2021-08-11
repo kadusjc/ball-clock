@@ -17,9 +17,15 @@ class HourTrack {
         this.indicatorQueue.push(oneHourBall)
 
         if (this.indicatorCount === TOTAL_INDICATOR_CAPACITY_BALLS + 1) {
-            for(let i=this.indicatorQueue.length-1;  i >= 0; i--){
+            this.indicatorQueue = this.indicatorQueue.reverse()
+
+            for(let i=1; i < this.indicatorQueue.length; i++){ 
                 this.ballQueue.giveBackOneBallToQueue(this.indicatorQueue[i])
             }
+
+            const twelfthBall = this.indicatorQueue[0]            
+            this.ballQueue.giveBackOneBallToQueue(twelfthBall)
+            
             this.clearIndicatorQueue()           
         }
     }
