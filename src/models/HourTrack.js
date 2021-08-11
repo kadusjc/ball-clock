@@ -3,6 +3,7 @@ const TOTAL_BALLS = 24
 class HourTrack {       
     constructor(ballQueue) {
         this.indicatorCount = 0
+        this.indicatorQueue = []
         this.ballQueue = ballQueue        
     }
 

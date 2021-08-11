@@ -16,7 +16,6 @@ module.exports = () => {
 
         array.map((num) => { 
             if (num === '0') return
-            console.log('NUM ' + num)
             let ballClock = new BallClock(num)
             const days = ballClock.turnOnClock()
             console.log(`${num} balls cycles after ${days} days`)    
