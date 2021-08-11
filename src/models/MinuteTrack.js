@@ -11,7 +11,7 @@ class MinutesTrack {
 
     getOneBallFromQueue () {
         let ball = this.ballQueue.getOneBallFromQueue()
-        this.indicatorQueue.unshift(ball)
+        this.indicatorQueue.push(ball)
     }
 
     clearIndicatorQueue () {
@@ -24,7 +24,7 @@ class MinutesTrack {
         this.getOneBallFromQueue()
 
         if (this.indicatorCount === TOTAL_BALLS) {
-            for(let i=this.indicatorQueue.length-1;  i >=0; i--){
+           for(let i=this.indicatorQueue.length-1;  i >=0; i--){
                 this.ballQueue.giveBackOneBallToQueue(this.indicatorQueue[i])
             }
             this.fiveMinutesTrack.addOneBallToIndicator()

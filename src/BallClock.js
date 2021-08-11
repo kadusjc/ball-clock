@@ -26,8 +26,8 @@ class BallClock {
             totalMinutes++
         } while(!isEnded)
         
-        console.log('Total Minutes ', totalMinutes)
-        const totalDays = convertMinutesToDays(totalMinutes)
+        console.log('Total Minutes ', totalMinutes * 2)
+        const totalDays = convertMinutesToDays(totalMinutes * 2)
         console.log('Total Days ', totalDays)
         return totalDays
     }

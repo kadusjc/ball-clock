@@ -1,3 +1,5 @@
+const { Console } = require("console");
+
 class BallQueue {
     constructor(size) {
         this.queue = []
@@ -23,6 +25,7 @@ class BallQueue {
     }
 
     isCycleEnded () {
+        console.log(this.queue)
         let isSorted = true
         this.queue.forEach((q, i) => {
             isSorted = !!(isSorted && (i == parseInt(q-1)))            
@@ -33,7 +36,7 @@ class BallQueue {
     sendBackToQueue () {
         const lastQueueElement = this.queue[this.size-1]
         this.queue.splice(this.size-1, 1)
-        this.queue.unshift(lastQueueElement)       
+        this.queue.push(lastQueueElement)       
     }
 
     getOneBallFromQueue () {
@@ -43,7 +46,10 @@ class BallQueue {
     }
 
     giveBackOneBallToQueue (ball) {
-        this.queue.unshift(ball)
+        console.log('ball ' + ball)
+        console.log('queue ' + this.queue)
+        this.queue.push(ball)
+        console.log('queue aft' + this.queue)
     }
 }
 
