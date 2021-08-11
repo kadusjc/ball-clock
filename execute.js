@@ -12,8 +12,6 @@ module.exports = () => {
     console.log('..:: Type balls queue size separated by ENTER, Type 0 and Enter to finish ::..')
 
     function runBallClock() {
-        console.log(`Computing ${array}... `)
-
         array.map((num) => { 
             if (num === '0') return
             let ballClock = new BallClock(num)
