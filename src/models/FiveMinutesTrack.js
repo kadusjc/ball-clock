@@ -1,5 +1,5 @@
 const HourTrack = require('./HourTrack')
-const TOTAL_BALLS = 11
+const TOTAL_INDICATOR_CAPACITY_BALLS = 11
     
 class FiveMinutesTrack  {    
     
@@ -19,7 +19,7 @@ class FiveMinutesTrack  {
         this.indicatorCount++
         this.indicatorQueue.push(fiveMinutesBall)
                 
-        if (this.indicatorCount === TOTAL_BALLS + 1) {
+        if (this.indicatorCount > TOTAL_INDICATOR_CAPACITY_BALLS) {
             for(let i=this.indicatorQueue.length-1;  i >= 1; i--){
                 this.ballQueue.giveBackOneBallToQueue(this.indicatorQueue[i])
             }

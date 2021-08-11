@@ -31,9 +31,7 @@ class BallClock {
             isEnded = this.queue.isCycleEnded()
         } while(!isEnded)
         
-        console.log('Total Cycles ', cyclesCounter)
         const totalDays = convertCyclesToDays(cyclesCounter++)
-        console.log('Total Days ', totalDays)
         return totalDays
     }
 

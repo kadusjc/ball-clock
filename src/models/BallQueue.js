@@ -2,7 +2,9 @@ const { Console } = require("console");
 
 class BallQueue {
     constructor(size) {
-        this.queue = []
+        this.queue = []        
+        this.queueInitialState = []
+
         this.size = size
         this.#initializeQueue()
         this.currentIndex = 0;    
@@ -11,6 +13,7 @@ class BallQueue {
     #initializeQueue() {               
         for (let i=1; i<=this.size; i++) {
             this.queue.push(i)
+            this.queueInitialState.push(i)
         }
     }
 
@@ -18,16 +21,10 @@ class BallQueue {
 
     getQueue = () => this.queue
 
-    getCurrentIndex = () => this.currentIndex++
-
-    getCurrentElement = () => {
-        return this.queue[this.currentIndex]
-    }
-
     isCycleEnded () {
         let isSorted = true
-        this.queue.forEach((q, i) => {
-            isSorted = !!(isSorted && (i == parseInt(q-1)))            
+        this.queueInitialState.forEach((queueInitialStateElement, i) => {
+            isSorted = !!(isSorted && queueInitialStateElement === this.queue[i])            
         })
         return isSorted          
     }

@@ -1,5 +1,5 @@
 const FiveMinutesTrack = require('./FiveMinutesTrack')
-const TOTAL_BALLS = 4
+const TOTAL_INDICATOR_CAPACITY_BALLS = 4
 
 class MinutesTrack {    
     constructor(ballQueue) {
@@ -9,21 +9,18 @@ class MinutesTrack {
         this.fiveMinutesTrack = new FiveMinutesTrack(ballQueue)
     }
 
-    getOneBallFromQueue () {
-        let ball = this.ballQueue.getOneBallFromQueue()
-        this.indicatorQueue.push(ball)
-    }
-
     clearIndicatorQueue () {
         this.indicatorQueue = []
         this.indicatorCount = 0
     }
 
     addOneBallToIndicator () {
-        this.indicatorCount++
-        this.getOneBallFromQueue()
+        let ball = this.ballQueue.getOneBallFromQueue()
 
-        if (this.indicatorCount === TOTAL_BALLS + 1) {
+        this.indicatorCount++
+        this.indicatorQueue.push(ball)        
+
+        if (this.indicatorCount > TOTAL_INDICATOR_CAPACITY_BALLS) {
            for(let i=this.indicatorQueue.length-1;  i >=1; i--){
                 this.ballQueue.giveBackOneBallToQueue(this.indicatorQueue[i])
             }
