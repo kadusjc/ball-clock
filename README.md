@@ -1,7 +1,6 @@
-BALL's CLOCK CHALLENGE
+# BALL's CLOCK CHALLENGE
 
-Tempus et mobilius
-Time and motion
+<p align="justify">Time and motion
 Tempus est mensura motus rerum mobilium.
 Time is the measure of movement.
 -- Auctoritates Aristotelis
@@ -44,18 +43,29 @@ signifies the end of input.
 Output
 For each clock described in the input, your program should report the number of balls
 given in the input and the number of days (24-hour periods) which elapse before the
-clock returns to its initial ordering.
-Sample Input
+clock returns to its initial ordering.</p>
 
-30
-45
-0
+### Sample Input
 
-Output for the Sample Input
+### 30
+### 45
+### 0
 
-30 balls cycle after 15 days.
-45 balls cycle after 378 days.
+### Output for the Sample Input
 
+### 30 balls cycle after 15 days.
+### 45 balls cycle after 378 days.
 
-Execute with yarn install && yarn start
-Run tests with yarn test
+## Nodejs Implementation of Balls Clock
+
+## Autor: Carlos Eduardo Ferreiro Correa
+
+To install and execute:
+``` 
+    yarn install && yarn start
+```    
+To run tests:
+``` 
+    yarn test
+```    
+ 
