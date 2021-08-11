@@ -29,7 +29,7 @@ class BallClock {
             this.#sendMinuteBallToItsTrack()
             cyclesCounter++
             isEnded = this.queue.isCycleEnded()
-        } while(!isEnded)
+        } while(!isEnded){}
         
         const totalDays = convertCyclesToDays(cyclesCounter++)
         return totalDays

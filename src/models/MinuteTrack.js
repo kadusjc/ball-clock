@@ -15,7 +15,7 @@ class MinutesTrack {
     }
 
     addOneBallToIndicator () {
-        let ball = this.ballQueue.getOneBallFromQueue()
+        let ball = this.ballQueue.getCurrentBallFromQueue()
 
         this.indicatorCount++
         this.indicatorQueue.push(ball)        

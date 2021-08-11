@@ -18,7 +18,7 @@ class FiveMinutesTrack  {
     addOneBallToIndicator (fiveMinutesBall) {
         this.indicatorCount++
         this.indicatorQueue.push(fiveMinutesBall)
-                
+        
         if (this.indicatorCount > TOTAL_INDICATOR_CAPACITY_BALLS) {
             for(let i=this.indicatorQueue.length-1;  i >= 1; i--){
                 this.ballQueue.giveBackOneBallToQueue(this.indicatorQueue[i])

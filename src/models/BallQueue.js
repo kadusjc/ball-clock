@@ -29,7 +29,7 @@ class BallQueue {
         return isSorted          
     }
 
-    getOneBallFromQueue () {
+    getCurrentBallFromQueue () {
         return this.queue.shift()
     }
 
