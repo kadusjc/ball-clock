@@ -4,7 +4,7 @@ class HourTrack {
     constructor(ballQueue) {
         this.indicatorCount = 0
         this.indicatorQueue = []
-        this.ballQueue = ballQueue        
+        this.ballQueue = ballQueue             
     }
 
     clearIndicatorQueue () {
@@ -20,7 +20,7 @@ class HourTrack {
             for(let i=this.indicatorQueue.length-1;  i >= 0; i--){
                 this.ballQueue.giveBackOneBallToQueue(this.indicatorQueue[i])
             }
-           this.clearIndicatorQueue()
+            this.clearIndicatorQueue()           
         }
     }
 

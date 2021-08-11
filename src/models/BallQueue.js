@@ -32,16 +32,8 @@ class BallQueue {
         return isSorted          
     }
 
-    sendBackToQueue () {
-        const lastQueueElement = this.queue[this.size-1]
-        this.queue.splice(this.size-1, 1)
-        this.queue.push(lastQueueElement)       
-    }
-
     getOneBallFromQueue () {
-        const currentBall = this.getCurrentElement() 
-        this.queue.shift()
-        return currentBall
+        return this.queue.shift()
     }
 
     giveBackOneBallToQueue (ball) {

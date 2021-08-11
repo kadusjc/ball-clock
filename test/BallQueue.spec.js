@@ -15,14 +15,14 @@ describe('BallQueue class test', () => {
         })
     })
 
-    describe('.sendBackToQueue', () => {
+    describe('.ggiveBackOneBallToQueue', () => {
         it('should send the last queue element to the first position, shifting queue', () => {
             const ballQ = new BallQueue(12)
             expect(ballQ.getQueue().length).to.be.eq(12)
             expect(ballQ.getQueue()[11]).to.be.eq(12)
             expect(ballQ.getQueue()[0]).to.be.eq(1)
             
-            ballQ.sendBackToQueue()
+            ballQ.giveBackOneBallToQueue()
             expect(ballQ.getQueue().length).to.be.eq(12)
             expect(ballQ.getQueue()[11]).to.be.eq(11)
             expect(ballQ.getQueue()[0]).to.be.eq(12)
@@ -31,13 +31,13 @@ describe('BallQueue class test', () => {
 
         it('should send the last queue element to the first position, shifting queue', () => {
             const ballQ = new BallQueue(3)
-            ballQ.sendBackToQueue()
+            ballQ.giveBackOneBallToQueue()
             expect(ballQ.isCycleEnded()).to.be.eq(false)
 
-            ballQ.sendBackToQueue()
+            ballQ.giveBackOneBallToQueue()
             expect(ballQ.isCycleEnded()).to.be.eq(false)
 
-            ballQ.sendBackToQueue()
+            ballQ.giveBackOneBallToQueue()
             expect(ballQ.isCycleEnded()).to.be.eq(true)            
         })
     })

@@ -1,7 +1,7 @@
 const BallClock = require('../src/BallClock')
 const validationErrorMessage = 'Queue input invalid. Use values from 27 until 127'
 
-describe.only('BallClock class test', () => {
+describe('BallClock class test', () => {
     describe('.turnOnClock', () => {
         it('should NOT turn the clock on if queue size is not valid', () => {
             let ballClock = new BallClock()
@@ -25,7 +25,7 @@ describe.only('BallClock class test', () => {
             ballClock = new BallClock(102)            
         })
 
-        it.only('should return 15 days when the queue has size like 30', () => {
+        it('should return 15 days when the queue has size like 30', () => {
             let ballClock = new BallClock(30)
             let days = ballClock.turnOnClock()
             expect(days).to.be.eq(15)
