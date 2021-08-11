@@ -1,4 +1,4 @@
-const TOTAL_BALLS = 12
+const TOTAL_BALLS = 11
     
 class HourTrack {       
     constructor(ballQueue) {
@@ -17,13 +17,11 @@ class HourTrack {
         this.indicatorCount = 0
     }
 
-    addOneBallToIndicator () {
+    addOneBallToIndicator (oneHourBall) {
         this.indicatorCount++
-        this.getOneBallFromQueue()
+        this.indicatorQueue.push(oneHourBall)
 
-        if (this.indicatorCount === TOTAL_BALLS) {
-            //for(let i=0; i<this.indicatorQueue.length; i++){
-            
+        if (this.indicatorCount === TOTAL_BALLS + 1) {
             for(let i=this.indicatorQueue.length-1;  i >= 0; i--){
                 this.ballQueue.giveBackOneBallToQueue(this.indicatorQueue[i])
             }

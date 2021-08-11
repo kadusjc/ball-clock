@@ -25,7 +25,6 @@ class BallQueue {
     }
 
     isCycleEnded () {
-        console.log(this.queue)
         let isSorted = true
         this.queue.forEach((q, i) => {
             isSorted = !!(isSorted && (i == parseInt(q-1)))            
@@ -46,10 +45,7 @@ class BallQueue {
     }
 
     giveBackOneBallToQueue (ball) {
-        console.log('ball ' + ball)
-        console.log('queue ' + this.queue)
         this.queue.push(ball)
-        console.log('queue aft' + this.queue)
     }
 }
 

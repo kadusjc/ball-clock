@@ -1,5 +1,5 @@
 const HourTrack = require('./HourTrack')
-const TOTAL_BALLS = 12
+const TOTAL_BALLS = 11
     
 class FiveMinutesTrack  {    
     
@@ -20,16 +20,16 @@ class FiveMinutesTrack  {
         this.indicatorCount = 0
     }
 
-    addOneBallToIndicator () {
+    addOneBallToIndicator (fiveMinutesBall) {
         this.indicatorCount++
-        this.getOneBallFromQueue()
-
-        if (this.indicatorCount === TOTAL_BALLS) {
-            //for(let i=0; i<this.indicatorQueue.length; i++){
-            for(let i=this.indicatorQueue.length-1;  i >= 0; i--){
+        this.indicatorQueue.push(fiveMinutesBall)
+                
+        if (this.indicatorCount === TOTAL_BALLS + 1) {
+            for(let i=this.indicatorQueue.length-1;  i >= 1; i--){
                 this.ballQueue.giveBackOneBallToQueue(this.indicatorQueue[i])
             }
-            this.hourTrack.addOneBallToIndicator()
+            const twelfthBall = this.indicatorQueue[0]
+            this.hourTrack.addOneBallToIndicator(twelfthBall)
             this.clearIndicatorQueue()
         }
     }
