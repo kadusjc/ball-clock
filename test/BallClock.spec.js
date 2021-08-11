@@ -30,6 +30,12 @@ describe('BallClock class test', () => {
             expect(days).to.be.eq(15)
         })
 
+        it('should return 378 days when the queue has size like 45', () => {
+            let ballClock = new BallClock(45)
+            let days = ballClock.turnOnClock()
+            expect(days).to.be.eq(378)
+        })
+
     })
 
 
