@@ -1,6 +1,5 @@
-# BALL's CLOCK CHALLENGE
+# BALL'S CLOCK CHALLENGE
 
-## Nodejs Implementation of Balls Clock
 ## Autor: Carlos Eduardo Ferreiro Correa
 
 <p align="justify">Time and motion
@@ -49,15 +48,18 @@ given in the input and the number of days (24-hour periods) which elapse before 
 clock returns to its initial ordering.</p>
 
 ### Sample Input
-
-### 30
-### 45
-### 0
+``` 
+30
+45
+0
+```
 
 ### Output for the Sample Input
 
-### 30 balls cycle after 15 days.
-### 45 balls cycle after 378 days.
+```
+30 balls cycle after 15 days.
+45 balls cycle after 378 days.
+```
 
 To install and execute:
 ``` 
