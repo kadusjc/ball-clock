@@ -10,11 +10,6 @@ class FiveMinutesTrack  {
         this.hourTrack = new HourTrack(ballQueue)
     }
 
-    getOneBallFromQueue () {
-        let ball = this.ballQueue.getOneBallFromQueue()
-        this.indicatorQueue.push(ball)
-    }
-
     clearIndicatorQueue () {
         this.indicatorQueue = []
         this.indicatorCount = 0
