@@ -23,16 +23,16 @@ class BallClock {
     }
 
     turnOnClock() {        
-        let totalMinutes = 0
+        let cyclesCounter = 0
         let isEnded = false
-        do {
-            totalMinutes++
+        do {            
             this.#sendMinuteBallToItsTrack()
+            cyclesCounter++
             isEnded = this.queue.isCycleEnded()
         } while(!isEnded)
         
-        console.log('Total Minutes ', totalMinutes)
-        const totalDays = convertMinutesToDays(totalMinutes)
+        console.log('Total Cycles ', cyclesCounter)
+        const totalDays = convertCyclesToDays(cyclesCounter++)
         console.log('Total Days ', totalDays)
         return totalDays
     }
@@ -42,8 +42,8 @@ class BallClock {
     }
 }
 
-function convertMinutesToDays (minutes) {
-    let days = (minutes / 60) / 24
+function convertCyclesToDays (cycles) {
+    let days = cycles / (60 * 24)
     return days
 }
 
