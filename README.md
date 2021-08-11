@@ -1,7 +1,5 @@
 # BALL'S CLOCK CHALLENGE
 
-## Autor: Carlos Eduardo Ferreiro Correa
-
 <p align="justify">Time and motion
 Tempus est mensura motus rerum mobilium.
 Time is the measure of movement.
@@ -69,4 +67,5 @@ To run tests:
 ``` 
     yarn test
 ```    
+
  
