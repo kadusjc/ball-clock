@@ -1,27 +1,36 @@
-const BallTrack = require('./BallTrack')
-const HourIndicator = require('./HourTrack')
+const HourTrack = require('./HourTrack')
 const TOTAL_BALLS = 12
     
 class FiveMinutesTrack  {    
     
     constructor(ballQueue) {
         this.indicatorCount = 0
+        this.indicatorQueue = []
         this.ballQueue = ballQueue
-        this.hourIndicator = new HourIndicator()
+        this.hourTrack = new HourTrack(ballQueue)
     }
 
-    sendBackToQueue () {
-        if (this.indicatorCount === TOTAL_BALLS) {
-            this.ballQueue.shift()
+    getOneBallFromQueue () {
+        let ball = this.ballQueue.getOneBallFromQueue()
+        this.indicatorQueue.unshift(ball)
+    }
 
-            this.indicatorCount = 0;
-            this.hourIndicator.addOneBallToIndicator()
-        }
+    clearIndicatorQueue () {
+        this.indicatorQueue = []
+        this.indicatorCount = 0
     }
 
     addOneBallToIndicator () {
         this.indicatorCount++
-        this.sendBackToQueue()
+        this.getOneBallFromQueue()
+
+        if (this.indicatorCount === TOTAL_BALLS) {
+            for(let i=this.indicatorQueue.length-1;  i >= 0; i--){
+                this.ballQueue.giveBackOneBallToQueue(this.indicatorQueue[i])
+            }
+            this.hourTrack.addOneBallToIndicator()
+            this.clearIndicatorQueue()
+        }
     }
 
 }

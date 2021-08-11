@@ -3,13 +3,12 @@ const MinutesTrack = require('./models/MinuteTrack')
 
 class BallClock {
     constructor (queueSize) {
-        this.queueSize = queueSize        
+        this.queueSize = parseInt(queueSize)
     }    
 
     #isValid () {
-        console.log('ENTROU IS VALID')
-        if (this.queueSize > 127 && this.queueSize < 27 ) { 
-            console.log('Deu ruim')
+        const isValid = this.queueSize <= 127 && this.queueSize >= 27 
+        if (!isValid) { 
             throw new Error('Queue input invalid. Use values from 27 until 127')
         }
     }
@@ -17,6 +16,7 @@ class BallClock {
     turnOnClock() {
         this.#isValid()
         this.queue = new BallQueue(this.queueSize)
+        this.minuteTrack = new MinutesTrack(this.queue)
         
         let totalMinutes = 0
         let isEnded = false
@@ -32,9 +32,8 @@ class BallClock {
         return totalDays
     }
 
-    #countOneMinute () {
-        let minuteTrack = new MinutesTrack(this.queue)
-        minuteTrack.addOneBallToIndicator()
+    #countOneMinute () {        
+        this.minuteTrack.addOneBallToIndicator()
     }
 }
 

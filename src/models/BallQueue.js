@@ -2,7 +2,8 @@ class BallQueue {
     constructor(size) {
         this.queue = []
         this.size = size
-        this.#initializeQueue()    
+        this.#initializeQueue()
+        this.currentIndex = 0;    
     }
 
     #initializeQueue() {               
@@ -14,6 +15,12 @@ class BallQueue {
     getSize = () => this.size
 
     getQueue = () => this.queue
+
+    getCurrentIndex = () => this.currentIndex++
+
+    getCurrentElement = () => {
+        return this.queue[this.currentIndex]
+    }
 
     isCycleEnded () {
         let isSorted = true
@@ -27,6 +34,16 @@ class BallQueue {
         const lastQueueElement = this.queue[this.size-1]
         this.queue.splice(this.size-1, 1)
         this.queue.unshift(lastQueueElement)       
+    }
+
+    getOneBallFromQueue () {
+        const currentBall = this.getCurrentElement() 
+        this.queue.shift()
+        return currentBall
+    }
+
+    giveBackOneBallToQueue (ball) {
+        this.queue.unshift(ball)
     }
 }
 

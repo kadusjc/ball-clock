@@ -9,7 +9,7 @@ module.exports = () => {
         output: process.stdout
     })
 
-    console.log('..:: Type balls separated by ENTER, 0 to finish ::..')
+    console.log('..:: Type balls queue size separated by ENTER, Type 0 and Enter to finish ::..')
 
     function runBallClock() {
         console.log(`Computing ${array}... `)
